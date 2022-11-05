@@ -8,7 +8,6 @@ import ListItemUser from "./components/ListItemUser";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { AddCircle } from "@mui/icons-material";
-import AddUserDialog from "./components/AddUserDialog";
 import logo from './logo.svg';
 import './App.css';
 
@@ -17,7 +16,7 @@ const BASE_API_URL = 'https://jsonplaceholder.typicode.com/';
 
 function App() {
   
-  const [data, setDatas] = useState([]);
+  const [data, setData] = useState([]);
 
 
   useEffect(() => {
