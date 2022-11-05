@@ -22,9 +22,9 @@ function App() {
   useEffect(() => {
     async function getData() {
       await axios
-        .get(`${BASE_API_URL}/posts`)
+        .GET(`${BASE_API_URL}/posts`)
         .then((res) => {
-          const resultData = res.data.data;
+          const resultData = res.json();
           setData(resultData);
         })
         .catch((error) => {
@@ -38,30 +38,19 @@ function App() {
   
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <List>
-          {data.map((d) => (
-            <ListItemUser
-          key={d.id}
-          primaryText={d.title}
-          secondaryText={d.body}
-          />
-          ))}
-        </List>
-
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <div className="list-container">
+          <div className="list-title-wrapper">
+            <List>
+              {data.map((d) => (
+                <ListItemUser
+              key={d.id}
+              primaryText={d.title}
+              secondaryText={d.body}
+              />
+              ))}
+            </List>
+          </div>
+        </div>
     </div>
   );
 }
