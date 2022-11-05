@@ -11,7 +11,7 @@ import { AddCircle } from "@mui/icons-material";
 import logo from './logo.svg';
 import './App.css';
 
-const BASE_API_URL = 'https://jsonplaceholder.typicode.com/';
+const BASE_API_URL = 'https://jsonplaceholder.typicode.com';
 
 
 function App() {
@@ -22,10 +22,11 @@ function App() {
   useEffect(() => {
     async function getData() {
       await axios
-        .GET(`${BASE_API_URL}/posts`)
+        .get(`${BASE_API_URL}/posts`)
         .then((res) => {
-          const resultData = res.json();
+          const resultData = res.data;
           setData(resultData);
+          console.log(res);
         })
         .catch((error) => {
           console.log(error);
@@ -34,7 +35,7 @@ function App() {
     }
 
     getData();
-  });
+  }, );
   
   return (
     <div className="App">
